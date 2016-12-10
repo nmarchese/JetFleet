@@ -64,8 +64,8 @@ public class Jet {
 	public void setMaxRange(double maxRange) {
 		this.maxRange = maxRange;
 	}
-	public void setMaxCruiseSpeedMach(double maxCruiseSpeedMach) {
-		this.maxCruiseSpeedMach = maxCruiseSpeedMach;
+	public void setMaxCruiseSpeedMach(double maxCruiseSpeedMPH) {
+		this.maxCruiseSpeedMach = maxCruiseSpeedMPH * 0.00130332;
 	}
 	public void setServiceCieling(double serviceCieling) {
 		this.serviceCieling = serviceCieling;
@@ -81,5 +81,21 @@ public class Jet {
 	}
 	public void setPassangerCapacity(int passangerCapacity) {
 		this.passangerCapacity = passangerCapacity;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("------------------------------------------");
+		builder.append("\nMake: " + make);
+		builder.append("\tModel: " + model);
+		builder.append("\nRange:\t\t\t" + maxRange);
+		builder.append("\nCruise Speed (Mach): " + maxCruiseSpeedMach);
+		builder.append("\nService Cieling:\t" + serviceCieling);
+		builder.append("\nTakeoff Distance:\t" + avgTkoffDist);
+		builder.append("\nLanding Distance:\t" + avgLndgDist);
+		builder.append("\nPassanger Capacity:\t" + passangerCapacity);
+		builder.append("\nPrice:\t\t\t" + price + "m");
+		builder.append("\n------------------------------------------");
+		return builder.toString();
 	}
 }
