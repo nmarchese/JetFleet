@@ -1,6 +1,7 @@
 package jets;
 
 public class Jet {
+	Pilot pilot;
 	private String make, model;
 	private double maxRange, maxCruiseSpeedMach, serviceCieling, avgTkoffDist, avgLndgDist, price;
 	int passangerCapacity;
@@ -16,6 +17,7 @@ public class Jet {
 		this.serviceCieling = serviceCieling;
 		this.passangerCapacity = passangerCapacity;
 		this.price = price;
+		this.pilot = new Pilot();
 	}
 	
 	public Jet(String make, String model, double maxRange, double maxCruiseSpeedMPH, double serviceCieling,
@@ -23,6 +25,7 @@ public class Jet {
 		this(make, model, maxRange, maxCruiseSpeedMPH, serviceCieling, passangerCapacity, price);
 		this.avgTkoffDist = avgTkoffDist;
 		this.avgLndgDist = avgLndgDist;
+		this.pilot = new Pilot();
 	}
 	
 	//getters
@@ -95,7 +98,9 @@ public class Jet {
 		builder.append("\nLanding Distance:\t" + avgLndgDist);
 		builder.append("\nPassanger Capacity:\t" + passangerCapacity);
 		builder.append("\nPrice:\t\t\t" + price + "m");
-		builder.append("\n------------------------------------------");
+		builder.append("\n------------------------------------------\n");
+		builder.append(pilot.toString());
+		builder.append("\n------------------------------------------\n");
 		return builder.toString();
 	}
 }
